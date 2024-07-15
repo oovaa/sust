@@ -16,8 +16,10 @@ public class Client {
         new InputStreamReader(soc.getInputStream())
       )
     ) {
-      System.out.println("Client started. Enter a string:");
+      System.out.println("Client started. Enter numbers space separated:");
       out.println(input.readLine());
+      String result = reader.readLine();
+      System.out.println(result);
     } catch (Exception e) {
       e.printStackTrace();
     }

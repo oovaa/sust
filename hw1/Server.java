@@ -22,7 +22,10 @@ public class Server {
     ) {
       System.err.println("Client connected");
       String received = in.readLine();
-      System.out.println("Server says " + received);
+
+      int[] data = Minmax.getMinMax(received);
+      int min = data[0], max = data[1];
+      out.println("Min is: " + min + "  Max is: " + max);
     } catch (Exception e) {
       e.printStackTrace();
     }
