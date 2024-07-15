@@ -16,10 +16,8 @@ public class Client {
         new InputStreamReader(soc.getInputStream())
       )
     ) {
-      System.out.println("Client started");
-      System.out.println("Enter a string:");
-      String str = input.readLine();
-      out.println(str);
+      System.out.println("Client started. Enter a string:");
+      out.println(input.readLine());
     } catch (Exception e) {
       e.printStackTrace();
     }

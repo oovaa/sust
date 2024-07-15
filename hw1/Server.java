@@ -12,15 +12,19 @@ public class Server {
 
   public static void main(String[] args)
     throws UnknownHostException, IOException {
-    ServerSocket ss = new ServerSocket(9806);
-    Socket soc = ss.accept();
-    System.err.println("client connected");
-    BufferedReader read = new BufferedReader(
-      new InputStreamReader(soc.getInputStream())
-    );
-    String str = read.readLine();
-    PrintWriter out = new PrintWriter(soc.getOutputStream(), true);
-    System.out.println("server says " + str);
-    ss.close();
+    try (
+      ServerSocket serverSocket = new ServerSocket(9806);
+      Socket clientSocket = serverSocket.accept();
+      BufferedReader in = new BufferedReader(
+        new InputStreamReader(clientSocket.getInputStream())
+      );
+      PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)
+    ) {
+      System.err.println("Client connected");
+      String received = in.readLine();
+      System.out.println("Server says " + received);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 }

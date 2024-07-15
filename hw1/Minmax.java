@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class test {
+public class Minmax {
 
   public static void main(String[] args) {
     String str = "23 1 45 a 7 -3 as -8";
@@ -15,11 +15,9 @@ public class test {
     String[] splited = strArr.split(" ");
     List<Integer> validnums = new ArrayList<>();
 
-    for (String s : splited) {
-      if (canParseToInt(s)) {
-        validnums.add(Integer.parseInt(s));
-      }
-    }
+    for (String s : splited) if (canParseToInt(s)) validnums.add(
+      Integer.parseInt(s)
+    );
 
     int min = getMin(validnums);
     int max = getmax(validnums);
