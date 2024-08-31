@@ -3,14 +3,6 @@ import java.util.List;
 
 public class Minmax {
 
-  public static void main(String[] args) {
-    String str = "23 1 45 a 7 -3 as -8";
-    int[] minmax = getMinMax(str);
-    int min = minmax[0];
-    int max = minmax[1];
-    System.out.println(min + " - " + max);
-  }
-
   static int[] getMinMax(String strArr) {
     String[] splited = strArr.split(" ");
     List<Integer> validnums = new ArrayList<>();
