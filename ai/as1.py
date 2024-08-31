@@ -43,6 +43,10 @@ class ITSupportAgent:
 
         if question not in self.prob_slo:
             print(self.apology)
+            print()
+            print("Here are some questions I can help you with:")
+            for num, q in enumerate(self.prob_slo.keys(), 1):
+                print(f"{num}. {q}")
             return
 
         solutions_list = self.prob_slo[question]
