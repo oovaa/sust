@@ -1,0 +1,182 @@
+The relationships between these classes can be set up using the following principles:
+
+1. User - Order Relationship: A user can have multiple orders, but an order belongs to a single user.
+
+One-to-Many: User (1) -> Order (many)
+
+
+
+2. Admin - Product Relationship: Admins manage the products, meaning they have the ability to add, update, or delete products.
+
+One-to-Many: Admin (1) -> Product (many)
+
+
+
+3. Order - Product Relationship: An order can have multiple products, and a product can be part of multiple orders.
+
+Many-to-Many: Order (many) -> Product (many)
+
+
+
+4. Order - Payment Relationship: Each order will have a single associated payment.
+
+One-to-One: Order (1) -> Payment (1)
+
+
+
+5. Order - Delivery Relationship: Each order will have one associated delivery.
+
+One-to-One: Order (1) -> Delivery (1)
+
+
+
+
+Updated Classes
+
+1. User Class:
+
+Attributes:
+
+userID: Unique identifier for each user
+
+name: Full name of the user
+
+email: User’s email address
+
+password: User’s password
+
+address: User’s delivery address
+
+orders: List of orders placed by the user
+
+
+Methods:
+
+login(): Authenticates user credentials
+
+logout(): Logs out the user
+
+register(): Creates a new user account
+
+viewOrders(): Displays the user's past and current orders
+
+cancelOrder(orderID): Allows the user to cancel an order
+
+
+
+2. Admin Class (inherits from User):
+
+Attributes (inherits all from User):
+
+adminID: Specific ID for admin users
+
+managedProducts: List of products managed by the admin
+
+
+Methods:
+
+manageOrders(orderID): Oversee and modify orders
+
+manageProducts(): Add, update, or delete products
+
+viewSalesReport(): View sales and revenue reports
+
+
+
+3. Product Class:
+
+Attributes:
+
+productID: Unique identifier for each product
+
+name: Name of the product
+
+description: Detailed description of the product
+
+price: Price of the product
+
+stock: Quantity available in stock
+
+orders: List of orders containing this product (many-to-many)
+
+
+Methods:
+
+viewProductDetails(): Displays details about the product
+
+updateStock(amount): Adjust stock after purchase or admin modification
+
+
+
+4. Order Class:
+
+Attributes:
+
+orderID: Unique identifier for the order
+
+userID: The user who placed the order (foreign key)
+
+orderDate: Date the order was placed
+
+status: Current status (e.g., pending, shipped, delivered)
+
+totalAmount: Total amount for the order
+
+products: List of products in the order (many-to-many)
+
+payment: Payment for this order (one-to-one relationship)
+
+delivery: Delivery associated with the order (one-to-one relationship)
+
+
+Methods:
+
+createOrder(products): Creates a new order based on products selected
+
+cancelOrder(): Cancels an existing order
+
+updateStatus(status): Update the status of the order (pending, shipped, etc.)
+
+
+
+5. Payment Class:
+
+Attributes:
+
+paymentID: Unique payment identifier
+
+orderID: The order associated with the payment (foreign key)
+
+amount: Amount to be paid
+
+paymentMethod: Payment method (e.g., credit card, cash)
+
+paymentStatus: Payment status (e.g., success, failed)
+
+
+Methods:
+
+processPayment(): Processes the payment for an order
+
+refundPayment(): Refunds payment for a canceled order
+
+
+
+6. Delivery Class:
+
+Attributes:
+
+deliveryID: Unique identifier for delivery
+
+orderID: The order associated with the delivery (foreign key)
+
+deliveryAddress: Address where the order is delivered
+
+deliveryStatus: Status of the delivery (e.g., dispatched, in-transit)
+
+
+Methods:
+
+updateDeliveryStatus(status): Updates the status of the delivery
+
+trackDelivery(): Tracks the current location or status of the delivery
