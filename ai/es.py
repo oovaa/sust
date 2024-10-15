@@ -63,7 +63,8 @@ def inference_engine(sensor_data):
                     time.sleep(2)  # Simulate time delay for calling
                 elif current_step == "call_911":
                     time.sleep(2)  # Simulate time delay for calling 911
-
+            else:
+                return
             current_step = step_info["next_step"]
     else:
         print("No fall detected. All is well.")
