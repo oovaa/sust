@@ -1,0 +1,7 @@
+- Sudan University of Science and Technology
+- College of Computer Science and Information Technology
+- Department of Computer Science
+- Course: C Programming
+- Lab: 2
+- Task: 1
+- Student ID: 1234567890

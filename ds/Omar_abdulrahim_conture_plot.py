@@ -2,10 +2,10 @@ import matplotlib.pyplot as plt
 from netCDF4 import Dataset
 import numpy as np
 
+# step 1 ✅
 # Open the NetCDF file
 file_path = "ds/Sea Surface Temp.nc"
 data = Dataset(file_path, "r")
-
 # Display global attributes (metadata)
 print("==== Global Attributes ====")
 for attr in data.ncattrs():
@@ -25,6 +25,7 @@ for var_name in data.variables:
 sst = data.variables["sst"][:]  # Replace 'sst' if the variable name differs
 print(f"\nSST shape (time, lat, lon): {sst.shape}")
 
+# step 2 ✅
 # Check for missing values in SST
 fill_value = (
     data.variables["sst"]._FillValue
@@ -33,13 +34,12 @@ fill_value = (
 )
 print(f"Fill value for SST: {fill_value}")
 
-# Mask missing values (if they exist)
-if fill_value is not None:
-    sst_masked = np.ma.masked_equal(sst, fill_value)
-    print(f"Number of missing values: {np.sum(sst_masked.mask)}")
-else:
-    sst_masked = sst
+# # Mask missing values (if they exist)
+if fill_value is None:
     print("No missing values detected.")
+else:
+    sst = np.ma.masked_equal(sst, fill_value)
+    print(f"Number of missing values: {np.sum(sst.mask)}")
 
 
 # Extract coordinates (adjust names if needed)
@@ -48,21 +48,17 @@ lon = data.variables["lon"][:]
 
 # Plot a single time step (e.g., first time index)
 time_idx = 0
-sst_snapshot = sst_masked[time_idx, :, :]
+sst_snapshot = sst[time_idx, :, :]
 
-# Create contour plot
+# step 3 ✅
+# # Create contour plot
 plt.figure(figsize=(10, 6))
 contour = plt.contourf(lon, lat, sst_snapshot, levels=20, cmap="coolwarm")
 plt.colorbar(contour, label="Sea Surface Temperature (°C)")
 
-# Add labels and title
+# # Add labels and title
 plt.xlabel("Longitude")
 plt.ylabel("Latitude")
 plt.title(f"Sea Surface Temperature (Time Step {time_idx})")
-
-# Optional: Add gridlines and coastlines (requires Cartopy for maps)
-# import cartopy.crs as ccrs
-# ax = plt.axes(projection=ccrs.PlateCarree())
-# ax.coastlines()
 
 plt.savefig("plots/conture.png")
