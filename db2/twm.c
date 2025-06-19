@@ -28,6 +28,18 @@ int main(int argc, char *argv[])
     for (int i = 0; i < size3; i++)
         printf("%d ", arr3[i]);
 
+    int unsorted[] = {7, 2, 9, 1, 5, 3, 8, 4, 6, 0};
+    int unsorted_size = sizeof(unsorted) / sizeof(unsorted[0]);
+    printf("\nUnsorted array: ");
+    for (int i = 0; i < unsorted_size; i++)
+        printf("%d ", unsorted[i]);
+    printf("\n");
+    mergeSort(unsorted, unsorted_size);
+    printf("Sorted array:   ");
+    for (int i = 0; i < unsorted_size; i++)
+        printf("%d ", unsorted[i]);
+    printf("\n");
+
     return 0;
 }
 
@@ -42,7 +54,7 @@ void mergeSort(int *arr, int len)
 void mergeSortRec(int *arr, int l, int r)
 {
 
-    if (!l < r)
+    if (l >= r)
         return;
 
     int m = (r + l) / 2;
@@ -55,6 +67,7 @@ void mergeSortRec(int *arr, int l, int r)
 
 void merge(int *arr, int l, int m, int r)
 {
+    int size = r - l + 1;
     int *temp = malloc((r - l + 1) * sizeof(int));
     int i = l, j = m + 1, k = 0;
 
@@ -90,7 +103,7 @@ void merge(int *arr, int l, int m, int r)
         j++;
         k++;
     }
-    for (int x = 0; x < r; x++)
-        arr[x] = temp[x];
+    for (int x = 0; x < size; x++)
+        arr[l + x] = temp[x];
     free(temp);
 }
