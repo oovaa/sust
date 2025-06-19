@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void *mergSort(int *arr);
-void *mergSortRec(int *arr, int l, int r);
-void *mergSortedArr(int *arr, int l, int m, int r);
+void mergeSort(int *arr, int len);
+void mergeSortRec(int *arr, int l, int r);
+void merge(int *arr, int l, int m, int r);
 
 int main(int argc, char *argv[])
 {
@@ -30,11 +31,66 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-void *mergSort(int *arr)
+void mergeSort(int *arr, int len)
 {
     if (arr == NULL)
-        return NULL;
+        return;
 
-    int len = sizeof(arr) / sizeof(arr[0]);
-    mergSortRec(arr, 0, len - 1);
+    mergeSortRec(arr, 0, len - 1);
+}
+
+void mergeSortRec(int *arr, int l, int r)
+{
+
+    if (!l < r)
+        return;
+
+    int m = (r + l) / 2;
+
+    mergeSortRec(arr, l, m);
+    mergeSortRec(arr, m + 1, r);
+
+    merge(arr, l, m, r);
+}
+
+void merge(int *arr, int l, int m, int r)
+{
+    int *temp = malloc((r - l + 1) * sizeof(int));
+    int i = l, j = m + 1, k = 0;
+
+    while (i <= m && j <= r)
+    {
+        if (arr[i] < arr[j])
+
+        {
+            temp[k] = arr[i];
+            i++;
+        }
+        else if (arr[i] > arr[j])
+        {
+            temp[k] = arr[j];
+            j++;
+        }
+        else
+        {
+            temp[k] = arr[i];
+            i++;
+        }
+        k++;
+    }
+    while (i <= m)
+    {
+        temp[k] = arr[i];
+        i++;
+        k++;
+    }
+    while (j <= r)
+    {
+        temp[k] = arr[j];
+        j++;
+        k++;
+    }
+    for (int x = 0; x < r; x++)
+        arr[x] = temp[x];
+    free(temp);
 }
