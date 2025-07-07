@@ -14,7 +14,7 @@ def load_iris_data():
 def plot_agglomerative_dendrogram(X):
     Z = linkage(X, method="ward")
     plt.figure(figsize=(10, 5))
-    plt.title("Agglomerative Dendrogram (Ward Linkage)")
+    plt.title("Divisitive Dendrogram (Ward Linkage)")
     plt.xlabel("Sample Index or (Cluster Size)")
     plt.ylabel("Distance")
     dendrogram(
