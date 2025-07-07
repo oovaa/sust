@@ -15,7 +15,7 @@ def main():
     model.fit(X)
     labels = model.labels_
     medoids = X[model.medoid_indices_]
-    print(model.medoid_indices_)
+    print(model.labels_)
 
     # Plot (first two features)
     plt.figure(figsize=(8, 6))
