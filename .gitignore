@@ -24,3 +24,6 @@ TestResults.xml
 *.class
 
 *.o
+
+coa/FPGA*
+coa/coa*
