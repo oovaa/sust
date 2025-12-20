@@ -3,17 +3,26 @@ body {
   background: #f4f4f4;
 }
 
+:root {
+  --header-font-size: 16px; /* Default */
+  --header-height: 500px; /* Default */
+}
+
 .main-header {
   background: url('gallery-header.jpg') center/cover no-repeat;
-  min-height: 500px;
+  min-height: var(--header-height, 500px);
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--header-font-size, 16px);
 }
 
 .main-header .logo {
-  position: absolute;
-  top: 24px;
-  left: 24px;
+  /* position: absolute; Removed to allow flex centering */
+  /* top: 24px;
+  left: 24px; */
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -23,29 +32,37 @@ body {
 
 .gallery-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  gap: 1%; /* Add gap for spacing */
 }
 
 .gallery-container a {
-  margin: 15px;
+  margin: 10px 0; /* Adjusted margin */
   padding: 10px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: opacity 1s, transform 0.3s, box-shadow 0.3s;
+  width: 24%; /* Set width to 24% */
+  box-sizing: border-box;
+  display: block; /* Ensure it behaves like a block for width */
 }
 
 .gallery-container a:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  filter: saturate(150%);
 }
 
 .gallery-container img {
   border-radius: 4px;
   object-fit: cover;
+  max-width: 100%; /* Ensure image fits in card */
+  width: 100%;
 }
 
 .gallery-container a::after {
@@ -130,9 +147,108 @@ body {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
 .gallery-filters button:hover {
   background: #59b3b6;
+}
+
+/* Table Styling */
+.painting-table {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: #dbd5d4;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.painting-table th,
+.painting-table td {
+  padding: 12px;
+  
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+
+}
+
+.painting-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.painting-table img {
+  border-radius: 4px;
+}
+
+.painting-table button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.painting-table button:hover {
+  opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  :root {
+    --header-font-size: 2em;
+    --header-height: 5em;
+  }
+
+  .gallery-container a {
+    width: 45%;
+  }
+
+  .main-header {
+    min-height: 5em; /* Using min-height as proxy for height */
+    font-size: 2em;
+  }
+
+  .gallery-filters,
+  .painting-table {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-font-size: 24px;
+    --header-height: 4em;
+  }
+
+  .gallery-container a {
+    width: 100%;
+  }
+
+  .main-header {
+    min-height: 4em;
+    font-size: 24px;
+  }
+
+  .gallery-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gallery-filters input,
+  .gallery-filters select,
+  .gallery-filters button,
+  .gallery-filters fieldset {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .painting-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+#actions {
+  display: block;
 }
