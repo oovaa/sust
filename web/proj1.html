@@ -9,9 +9,46 @@
 </head>
 
 <body>
-    <header class="main-header">
+    <!-- <header class="main-header">
         <img src="logo.jpg" alt="Logo" class="logo">
-    </header>
+    </header> -->
+
+    <div id="search_form">
+
+        <label for=""> <strong>Advanced Art Work Search</strong></label>
+    </div>
+    <form class="gallery-filters" action="#" method="get">
+        <input type="text" id="search" name="search" placeholder="Search artworks">
+        Subject
+        <fieldset>
+            <label><input type="radio" name="view" value="grid" checked> History</label>
+            <label><input type="radio" name="view" value="list"> Person</label>
+            <label><input type="radio" name="view" value="compact"> Landsrape</label>
+        </fieldset>
+
+
+        <select id="genre" name="genre">
+            <option value="0">Select Genre</option>
+            <option value="1">Baroque</option>
+            <option value="2">Renaissance</option>
+            <option value="3">Realism</option>
+        </select>
+        <button type="button">Filter</button>
+
+
+        <div id="actions">
+            <label for="bulk">Bulk Actions</label>
+            <select id="bulk" name="bulk">
+                <option value="0">Select Action</option>
+                <option value="1">Archive</option>
+                <option value="2">Edit</option>
+                <option value="3">Delete</option>
+                <option value="4">Collection</option>
+            </select>
+
+        </div>
+    </form>
+
     <main class="gallery-container">
         <a href="gallery1.html"><img src="gallery1.png"></a>
         <a href="gallery2.html"><img src="gallery2.png"></a>

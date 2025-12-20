@@ -60,3 +60,79 @@ body {
 .gallery-container a:hover::after {
   opacity: 1;
 }
+
+#search_form {
+  margin: 10px;
+  background-color: #144345;
+}
+
+#search_form label {
+  display: block;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  font-size: x-large;
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+/* Styling for the gallery filters form */
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background: #dbd5d4;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.gallery-filters label {
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.gallery-filters input[type='text'] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.gallery-filters fieldset {
+  border: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.gallery-filters select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f9f9f9;
+}
+
+.gallery-filters select:focus,
+.gallery-filters input[type='text']:focus {
+  outline: none;
+  border-color: #2c6264;
+  box-shadow: 0 0 5px #62a9ac;
+}
+
+.gallery-filters button {
+  padding: 10px 20px;
+  background: #408183;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.gallery-filters button:hover {
+  background: #59b3b6;
+}
