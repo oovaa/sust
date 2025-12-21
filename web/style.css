@@ -168,26 +168,62 @@ body {
 
 .headers {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
   font-size: x-large;
   background-color: #c4f0f1;
   width: 96%;
-  padding: 5px;
+  padding: 10px;
   border-bottom: #54b4b8 solid;
   border-right: #54b4b8 solid;
   margin: 0 auto;
-
   border-left: #54b4b8 solid;
-}
-
-.painting-table img {
-  height: 20px;
-  width: 20px;
+  box-sizing: border-box;
 }
 
 .painting-item {
   display: flex;
-  justify-content: space-around;
-  padding: 30px;
+  align-items: center;
+  padding: 10px;
   font-size: x-large;
+  width: 96%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+}
+
+.headers > div,
+.painting-item > div {
+  flex: 1;
+  text-align: left;
+}
+
+.headers > div:first-child,
+.painting-item > div:first-child {
+  flex: 2;
+}
+
+.artwork-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.artwork-cell img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.actions img {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.artwork-cell span {
+  padding-left: 10px;
+}
+
+#title {
+  text-align: center;
 }
