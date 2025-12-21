@@ -9,6 +9,103 @@
 </head>
 
 <body>
+    <form action="search">
+        <div class="search-header">
+            <label>Advanced Art Work Search </label>
+        </div>
+        <div class="main-form">
+
+            <input type="text" id="search-box" placeholder="search">
+            <div id="sub">
+                subject
+            </div>
+            <ul class="radio-list">
+                <li>
+                    <label>
+                        <input type="radio" name="mode" class="big-radio" value="primary">
+                        primary
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="mode" class="big-radio" value="secondary">
+                        secondary
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="mode" class="big-radio" value="trinary">
+                        trinary
+                    </label>
+                </li>
+            </ul>
+            <div class="grene-list">
+                <select id="search">
+                    <option value="">grene list</option>
+                    <option value="0">Baroque</option>
+                    <option value="1">Renaissance</option>
+                    <option value="2">Realism</option>
+                    <option value="3">Date</option>
+                </select>
+                <button type="button" id="filter">Filter</button>
+            </div>
+        </div>
+
+        <div class="bulk-form">
+            <select id="fruits" name="fruit">
+                <option value="">bulk list</option>
+                <option value="0">Archive</option>
+                <option value="1">Edit</option>
+                <option value="2">delete</option>
+                <option value="3">collection</option>
+            </select>
+
+            <button type="button">Apply to all</button>
+
+        </div>
+    </form>
+    <div class="painting-container">
+        <div class="painting-header">
+            Paintings
+        </div>
+        <div class="painting-table">
+            <div class="headers">
+                <div>title</div>
+                <div>artist</div>
+                <div>year</div>
+                <div>gerne</div>
+                <div>actions</div>
+            </div>
+            <div class="painting-item">
+
+                <input type="checkbox" value="1" />
+
+                <a href="gallery1.html"><img src="gallery1.png"></a>
+                <div class="artist">
+                    hehej aosos
+                </div>
+                <div class="year">
+                    1444
+
+                </div>
+                <div class="gerne">
+                    fakeism
+                </div>
+                <div class="actions">
+                    <img src="archive.png" alt="">
+                    <img src="bin.png" alt="">
+                    <img src="edit.png" alt="">
+                </div>
+            </div>
+
+
+            <input type="checkbox" value="2" />
+            <input type="checkbox" value="3" />
+            <input type="checkbox" value="4" />
+            <input type="checkbox" value="5" />
+
+        </div>
+    </div>
     <header class="main-header">
         <img src="logo.jpg" alt="Logo" class="logo">
     </header>
