@@ -104,7 +104,7 @@ public class SearchingAlgorithms {
     }
 
     // ==========================================
-    // 3. INTERPOLATION SEARCH (Requires Sorted, Uniform Array)
+    // 3. INTERPOLATION SEARCH (Requires Sorted, Uniform Array
     // ==========================================
     /*
      * PSEUDO CODE:
@@ -119,7 +119,7 @@ public class SearchingAlgorithms {
      * avg case: O(log(log(n))) (if data is uniform)
      */
     public static int interpolationSearch(int[] arr, int target) {
-        int low = 0; // ----> 1
+        int low = 0; // ----> 
         int high = arr.length - 1; // ----> 1
 
         while (low <= high && target >= arr[low] && target <= arr[high]) { // ----> n (worst) or log(log n) (avg)
