@@ -10,10 +10,7 @@
 
 <body>
 
-    <header class="main-header" style="min-height: 100px; background-position: center;">
-        <a href="proj1.html"
-            style="text-decoration: none; color: white; display: block; padding-top: 24px; padding-left: 100px; font-weight: bold; font-size: 24px;">Art
-            Store</a>
+    <header class="main-header">
         <img src="logo.jpg" alt="Logo" class="logo">
     </header>
 
@@ -21,6 +18,11 @@
         <h1>Your Shopping Cart</h1>
 
         <div class="cart-controls">
+            <label>
+                Search:
+                <input type="text" id="search-filter" placeholder="Filter by product name...">
+            </label>
+
             <label>
                 Tax Rate (%):
                 <input type="number" id="tax-rate" value="10" min="0" step="0.1">
@@ -42,20 +44,19 @@
                 </tr>
             </thead>
             <tbody id="cart-body">
-                <!-- Cart rows will be generated here -->
             </tbody>
             <tfoot>
-                <tr class="summary-row">
+                <tr>
                     <td colspan="3">Subtotal</td>
                     <td id="subtotal">0.00</td>
                     <td></td>
                 </tr>
-                <tr class="summary-row">
+                <tr>
                     <td colspan="3">Tax</td>
                     <td id="tax">0.00</td>
                     <td></td>
                 </tr>
-                <tr class="summary-row">
+                <tr>
                     <td colspan="3">Shipping</td>
                     <td id="shipping">0.00</td>
                     <td></td>
@@ -69,13 +70,12 @@
         </table>
 
         <div class="cart-actions">
-            <button id="clear-cart" class="btn-clear">Clear Cart</button>
-            <a href="proj1.html" class="btn-continue">Continue Shopping</a>
+            <button id="clear-cart">Clear Cart</button>
+            <a href="proj1.html" class="continue-shopping">Continue Shopping</a>
         </div>
     </div>
 
-    <script src="data.js"></script>
-    <script src="cart.js"></script>
+    <script type="module" src="cart.js"></script>
 </body>
 
 </html>
