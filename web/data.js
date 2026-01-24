@@ -1,4 +1,4 @@
-/* here is the array used for project 1 */
+/* Corrected data.js with valid filenames */
 
 const cart = [
   {

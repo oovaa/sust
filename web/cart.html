@@ -10,7 +10,10 @@
 
 <body>
 
-    <header class="main-header">
+    <header class="main-header" style="min-height: 100px; background-position: center;">
+        <a href="proj1.html"
+            style="text-decoration: none; color: white; display: block; padding-top: 24px; padding-left: 100px; font-weight: bold; font-size: 24px;">Art
+            Store</a>
         <img src="logo.jpg" alt="Logo" class="logo">
     </header>
 
@@ -39,19 +42,20 @@
                 </tr>
             </thead>
             <tbody id="cart-body">
+                <!-- Cart rows will be generated here -->
             </tbody>
             <tfoot>
-                <tr>
+                <tr class="summary-row">
                     <td colspan="3">Subtotal</td>
                     <td id="subtotal">0.00</td>
                     <td></td>
                 </tr>
-                <tr>
+                <tr class="summary-row">
                     <td colspan="3">Tax</td>
                     <td id="tax">0.00</td>
                     <td></td>
                 </tr>
-                <tr>
+                <tr class="summary-row">
                     <td colspan="3">Shipping</td>
                     <td id="shipping">0.00</td>
                     <td></td>
@@ -65,8 +69,8 @@
         </table>
 
         <div class="cart-actions">
-            <button id="clear-cart">Clear Cart</button>
-            <a href="proj1.html" class="continue-shopping">Continue Shopping</a>
+            <button id="clear-cart" class="btn-clear">Clear Cart</button>
+            <a href="proj1.html" class="btn-continue">Continue Shopping</a>
         </div>
     </div>
 
